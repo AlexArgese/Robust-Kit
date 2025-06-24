@@ -1,0 +1,480 @@
+.how-page {
+  margin: 0 auto;
+  position: relative;
+    width: 100vw;
+    background: linear-gradient(0deg, #fff 50%, #D9D9DE 100%);
+}
+
+.how-hero {
+  display: flex;
+  flex-direction: column;
+  padding: 8% 0;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+.how-logo {
+  display: flex;
+  flex-direction: row;
+}
+.line1 {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  margin: 0 auto;
+  gap: 1em;
+  z-index: 1; 
+}
+
+.link{
+  color: #4D8AFF;
+  border-bottom: 1px solid rgb(77, 138, 255);
+}
+
+
+.step1 {
+  margin: 0 10%;
+}
+.step1-text{
+  width: 30%;
+}
+.principal-content {
+  display: flex;
+  flex-direction: row;
+  padding: 2em 0;
+  gap: 2em
+}
+.board-image {
+  position: relative;      /* contesto per i layer */
+}
+
+.board {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1;              /* cornice sotto */
+}
+
+.board-parallax {
+  position: absolute;      /* si sovrappone alla board */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;    /* fa passare i click alla board sotto */
+  z-index: 2;              /* layer sopra la cornice */
+}
+
+.parallax-layer {
+  position: absolute;
+  transition: transform 0.2s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Posizionamento di base dei quattro layer */
+.layer1 { top: 15%;  left: 10%; }
+.layer2 { top: 15%;  right: 10%; }
+.layer3 { bottom: -2%; left: 10%; }
+.layer4 { bottom: -2%; right: 10%; }
+
+
+/* …tutto il tuo CSS esistente per .how-page, .how-hero, .step1 ecc… */
+
+/* ——— Step 2 fisso ——— */
+.step2 {
+  position: relative; 
+  z-index: 0;
+  margin-top: 9rem;
+  padding: 1rem 1rem 6rem;
+  background: #F4F4F6;
+  overflow: visible;
+  height: auto;
+}
+
+.step2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: calc(100% + 500px);
+  height: calc(100% + 10%);
+  background: linear-gradient(-90deg, #F4F4F6 0%, #D9D9DE 100%);
+  transform: rotate(4deg);
+  transform-origin: top right;
+  z-index: -1; 
+  box-sizing: border-box;       /* include il bordo nelle dimensioni */
+  border: 0.5px solid #D9D9DE;       /* bordo nero sottile */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bot {
+  margin-bottom: 2rem;
+  margin: 0 10%;
+}
+
+.margine {
+  margin-top: 10%;
+}
+.margine-frecce {
+  margin-top: 5%;
+}
+
+.step2-heading {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: normal;
+}
+
+.step2-visual {
+  z-index: 1; 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10%;
+  margin-bottom: 1rem;
+}
+
+.step2-arrow-static {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  pointer-events: none;
+}
+
+.arrow-left {
+  top: 20px;
+  left: calc(48% - 200px); /* allinea tra centro e sinistra */
+}
+
+/* posizione freccia destra */
+.arrow-right {
+  top: 20px;
+  left: 52%; /* allinea tra centro e destra */
+}
+
+/* layer statici */
+.step2-layer {
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.step2-center {
+  flex: 0 0 auto;
+}
+
+.step2-left,
+.step2-right {
+  flex: 0 0 auto;
+}
+
+.step2-visual,
+.step2-texts {
+  position: relative;
+  z-index: 1;
+}
+
+.step2-left img,
+.step2-right img {
+  max-width: 140px;
+}
+
+.step2-layer img {
+  display: block;
+  max-width: 140px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+.step2-center img {
+  max-width: 180px;
+}
+
+.step2-label {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.step2-texts {
+  z-index: 1; 
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  margin: 0 5%;
+}
+
+.step2-text {
+  flex: 1;
+  max-width: 40%;
+  line-height: 1.6;
+  color: #333;
+}
+.right {
+  text-align: right;
+}
+
+/* Colore blue ereditato */
+.blue {
+  color: #4D8AFF;
+}
+
+
+.how-page2 {
+  margin: 0 auto;
+  padding: 5% 0;
+  width: 100vw;
+  background: linear-gradient(180deg,#F4F4F6 50%,#D9D9DE 100%);
+}
+
+.step3 {
+  position: relative;
+  margin: 0 10%;
+}
+
+.progress-slider {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto 4rem;
+  border: 2px solid #333;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+}
+
+/* wrapper relativo per ciascun pannello */
+.progress-empty,
+.progress-fill {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100%;
+}
+
+/* solo gli sfondi scalano */
+.empty-bg,
+.fill-bg {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  will-change: transform, border-radius;
+  transition: transform 0.1s linear, border-radius 0.3s ease-out;
+}
+.empty-bg { background: #DDD; transform-origin: right center; z-index: 1; }
+.fill-bg  { background: #4D8AFF; transform-origin: left center;  z-index: 2; }
+
+/* testo non viene scalato */
+.progress-label {
+  font-size: 1.3em;
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #333; font-weight: 500;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+  z-index: 3;
+}
+
+/* Metric-content dentro ciascun pannello */
+.metric-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; gap: 0.5rem;
+  text-align: center;
+  z-index: 3;
+}
+.metric-content p, h2 {
+  margin-bottom: 0;
+}
+.metric-content h2 {
+  margin-top: 0;
+}
+.fill-content { color: #D9FFD9; left: 25%}
+.empty-content { color: #333; left: 75%}
+
+/* Result-content */
+.result-content {
+  color: #D9FFD9;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+}
+.result-content h2 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+.result-sub {
+  margin: 0 0 1.5rem;
+  font-size: 1.1rem;
+}
+.stars {
+  font-size: 3rem;
+  color: #B6F09C;
+}
+.stars span {
+  margin: 0 0.3rem;
+}
+
+
+
+.details {
+  position: relative;
+  padding: 1rem 1rem 6rem;
+  background: #F4F4F6;
+  overflow: visible;
+}
+
+.details::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -200px;
+  width: calc(100% + 500px);
+  height: calc(100% + 70px);
+  background: linear-gradient(90deg,#F4F4F6 0%,#D9D9DE 100%);
+  transform: rotate(-4deg);
+  transform-origin: top left;
+  z-index: 1;
+  border: 0.5px solid #D9D9DE;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.details-content {
+  position: relative;
+  z-index: 2;
+  margin: 0 10%;
+  text-align: center;
+}
+
+.details-title {
+  font-size: 3rem;
+  margin: 0 0 1.5rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.stones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+/* 1) do una larghezza fissa alle cards */
+.stone-card {
+  flex: 0 0 300px; /* 200px di base, non si riduce né cresce */
+}
+.stone-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+/* 2) card-inner: dimensioni fisse, niente padding-top hack */
+.card-inner {
+  position: relative;
+  width: 100%;       /* occupa il 100% di stone-card (200px) */
+  height: 400px;     /* fissa */
+  perspective: 1000px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  overflow: visible; /* permette al retro di “sbucare” fuori */
+}
+
+/* 3) facce della card: stesse dimensioni, overflow visibile */
+.card-face {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.6s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: visible;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.3))
+}
+
+/* 4) l’immagine overlay sul retro non verrà tagliata */
+.back-overlay {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* FRONTE */
+.card-front {
+  transform: rotateY(0deg);
+  display: flex;
+  justify-content: start;
+}
+.stone-label {
+  margin: 1em 0;
+  font-size: 2rem;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+.front-text {
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #444;
+  margin: 0 13%;
+}
+.front-text p {
+  margin: 0 0 0.5rem;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+/* RETRO */
+.card-back {
+  transform: translateZ(10px) rotateY(180deg);
+  position: relative;
+  display: flex;
+  justify-content: start;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+.back-overlay {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+/* flip attivo */
+.card-inner.is-flipped .card-front {
+  transform: translateZ(10px) rotateY(-180deg);
+}
+.card-inner.is-flipped .card-back {
+  transform: translateZ(10px) rotateY(0deg);
+}
+
+
+.view-results-section {
+  padding: 10rem 1rem 6rem;
+  background: linear-gradient(0deg, #F4F4F6 0%, #F4F4F6 100%);
+  overflow: visible;
+  height: auto;
+}
+.view-results-content {
+  position: relative;
+  z-index: 2;
+  margin: 0 10%;
+  text-align: center;
+}
+.view-results-title { font-size: 3rem; margin: 0 0 1.5rem 0 ;line-height:1.2; font-weight: normal;}
+.view-results-img {  width: 20%; filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.3));}
+.view-results-img:active {
+  filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.5)); transform: translate(5px, 3px);
+}

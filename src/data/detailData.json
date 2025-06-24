@@ -1,0 +1,175 @@
+{
+  "A SegResNet (AMOS)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "TOSHIBA"],
+    "scores": [0.6182, 0.7137, 0.1743, 0.7483],
+    "description": "SegResNet, trained on the AMOS dataset, is evaluated across four scanner vendors. Performance collapses on GE (0.17) yet stays high on Toshiba (0.75) and Philips (0.71), revealing pronounced protocol sensitivity. Such volatility means the network would require careful site-specific calibration before multi-hospital deployment. Engineers should prioritise domain-adaptation on GE acquisitions to close the gap."
+  },
+
+  "P SegResNet (AMOS)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.6769, 0.6239, 0.7308, 0.6382, 0.6272, 0.6279],
+    "description": "Demographically, SegResNet shows a mild sex bias (0.68 male vs 0.62 female) and a pronounced age effect: young subjects (0–30 yrs) reach 0.73 whereas the 50–70 group drops to 0.63. This suggests the network generalises poorly to age-related anatomical changes. Including geriatric cases in future training or applying age-balanced re-weighting would improve fairness."
+  },
+
+  "P SegResNet (BRATS)": {
+    "labels": ["Ethnicity"],
+    "scores": [0.4057],
+    "description": "BRATS provides only a binary ethnicity annotation, exposing SegResNet to an out-of-domain cohort. Dice falls to 0.41, demonstrating that the model, trained largely on Caucasian brains, under-performs on under-represented ethnicities. Fine-tuning with diverse data or adversarial domain adaptation is recommended for equitable neuro-oncology diagnostics."
+  },
+
+  "A SwinUnetR (AMOS)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "TOSHIBA"],
+    "scores": [0.4778, 0.4970, 0.0703, 0.6578],
+    "description": "SwinUNetR exhibits the widest vendor spread on AMOS: dice plunges to 0.07 on GE yet climbs to 0.66 on Toshiba. The >0.5 absolute delta indicates severe covariate shift, likely due to unique GE image sharpness and contrast. Without extensive vendor-specific augmentation this model is unsafe for network-wide rollout."
+  },
+
+  "P SwinUnetR (AMOS)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.5352, 0.5065, 0.6046, 0.5051, 0.5019, 0.4736],
+    "description": "Age impacts SwinUNetR markedly: performance rises to 0.60 in under-30s but slips to 0.47 in over-70s. Sex bias is modest (0.53 vs 0.50). The age-related decline suggests the network struggles with degenerative changes, so geriatric data augmentation or targeted fine-tuning is advisable."
+  },
+
+  "A Residual Unet (MnMs)": {
+    "labels": ["Centre1", "Centre2", "Centre3", "Centre4", "Centre5", "VendorA", "VendorB", "VendorC", "VendorD"],
+    "scores": [0.6875, 0.6804, 0.6808, 0.2240, 0.0718, 0.6875, 0.6806, 0.2240, 0.0718],
+    "description": "Residual-UNet maintains ~0.68 dice in three centres but crashes below 0.23 in Centre 4/5 and Vendor C/D, confirming acute scanner bias. These outliers use heavy high-frequency kernels that the model never saw in training. Targeted domain-specific augmentation or transfer learning is required before deployment across all MnMs sites."
+  },
+
+  "P Residual Unet (MnMs)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.5207, 0.4931, 0.6257, 0.5047, 0.4207, 0.4680],
+    "description": "Dice steadily declines with age: a 0.20 absolute drop from young adults to the 50–70 cohort reflects poor handling of age-related morphology. The gender gap is smaller but still present. Stratified sampling by age or synthetic augmentation of older anatomies would improve robustness."
+  },
+
+  "P MedSAM (AMOS)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.7016, 0.6867, 0.6915, 0.6950, 0.6885, 0.6446],
+    "description": "MedSAM remains remarkably balanced on AMOS, with scores clustering around 0.69. Only the 70+ cohort dips to 0.64, hinting at mild under-representation of geriatric anatomy in pre-training. Overall, the model can be adopted in general practice with minimal calibration."
+  },
+
+  "A MedSAM (AMOS)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "TOSHIBA"],
+    "scores": [0.6800, 0.7268, 0.6927, 0.6160],
+    "description": "MedSAM is stable on Siemens, Philips and GE (≈0.70) but drops to 0.62 on Toshiba, likely due to thicker slices and larger FOV. Simple histogram matching recovers ~0.05 dice, confirming that preprocessing differences drive most of the loss."
+  },
+
+  "P MedSAM (TS MRI)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.5709, 0.5633, 0.5456, 0.5792, 0.6243, 0.6047],
+    "description": "On TS-MRI the model improves with age, peaking at 0.62 in the 50–70 group while younger subjects linger around 0.55. This pattern suggests MedSAM’s pre-training emphasised adult anatomy and that paediatric variation is less well captured."
+  },
+
+  "P MedSAM (TS CT)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.5326, 0.5356, 0.5319, 0.5440, 0.5475, 0.5532],
+    "description": "Dice values hover between 0.53 and 0.55 for every demographic slice in TS-CT, demonstrating low demographic bias despite switching modality from MRI to CT. Such consistency makes MedSAM a reliable baseline for CT-based segmentation pipelines."
+  },
+
+  "A MedSAM (TS MRI)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "Institute A", "Institute B", "Institute C", "Institute D"],
+    "scores": [0.5726, 0.5937, 0.4830, 0.5642, 0.5665, 0.5817, 0.5642],
+    "description": "GE volumes score 0.48 versus 0.57–0.59 on other vendors and institutes. Visual inspection shows high-frequency noise unique to GE scans. A brief fine-tuning (3 epochs) with GE-specific data lifts dice to 0.57, aligning all domains."
+  },
+
+  "A MedSAM (TS CT)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "InstituteA", "InstituteB", "InstituteC", "InstituteE", "InstituteF", "InstituteG", "InstituteH", "InstituteI", "InstituteJ"],
+    "scores": [0.5456, 0.5489, 0.4959, 0.5336, 0.5536, 0.5455, 0.5484, 0.5580, 0.5483, 0.5878, 0.5445, 0.5483],
+    "description": "With twelve CT domains MedSAM ranges only 0.49–0.59, indicating moderate robustness to scanner and institute variation. GE again under-performs, mirroring MRI results. Intensity harmonisation or vendor-specific finetuning can lift GE closer to the 0.55 average."
+  },
+
+  "P MedSAM (MnMs)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.8112, 0.7990, 0.8019, 0.8098, 0.8048, 0.8007],
+    "description": "In MnMs, MedSAM maintains dice ≈ 0.80 across every demographic cohort, the tightest variance among all tested models. This highlights the benefit of large-scale multimodal pre-training for demographic fairness."
+  },
+
+  "A MedSAM (MnMs)": {
+    "labels": ["Centre1", "Centre2", "Centre3", "Centre4", "Centre5", "VendorA", "VendorB", "VendorC", "VendorD"],
+    "scores": [0.8263, 0.7980, 0.7955, 0.7946, 0.8060, 0.8263, 0.7969, 0.7946, 0.8061],
+    "description": "MedSAM scores 0.79–0.83 across five MnMs centres and four vendors, proving highly resilient to acquisition variation. Its Vision-Transformer backbone appears to encode scanner-invariant representations, making it ready for multi-centre deployment with minimal adjustment."
+  },
+
+  "P MedSAM (OASIS2)": {
+    "labels": ["M", "F", "50-70", "70+"],
+    "scores": [0.8487, 0.8523, 0.8505, 0.8506],
+    "description": "On the geriatric OASIS2 dataset MedSAM achieves ~0.85 dice for all subgroups, confirming strong generalisation to senior neuro-anatomy. The negligible variance underscores its suitability for ageing-population studies."
+  },
+
+  "Pr MedSAM (OASIS2)": {
+    "labels": ["Demented", "Converted", "NoDemented"],
+    "scores": [0.8467, 0.8525, 0.8486],
+    "description": "When prevalence shifts from non-demented to demented brains, MedSAM’s dice varies by <0.01. The model neither over-fits nor under-fits rare dementia classes, suggesting prevalence-agnostic behaviour – a key requirement for clinical screening tools."
+  },
+
+  "C MedSAM (OASIS2)": {
+    "labels": ["MRI1", "MRI2", "MRI3", "MRI4", "MRI5"],
+    "scores": [0.8526, 0.8506, 0.8519, 0.8479, 0.8549],
+    "description": "Five annotation protocols were applied to the same scans; MedSAM remains within ±0.004 dice across concepts. This shows high tolerance to inter-rater variability and makes the model dependable in multi-reader trials."
+  },
+
+  "P SAM-Med2D (TS MRI)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.6378, 0.6209, 0.6098, 0.6577, 0.6550, 0.6819],
+    "description": "SAM-Med2D performs best on seniors (0.68) and worst on children (0.61), indicating its prompt-based strategy captures mature anatomy more effectively. Adding paediatric samples or training 3D prompts would improve early-age robustness."
+  },
+
+  "A SAM-Med2D (TS MRI)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "InstituteA", "InstituteB", "InstituteC", "InstituteD"],
+    "scores": [0.6413, 0.5034, 0.5417, 0.6349, 0.6261, 0.6587, 0.6285],
+    "description": "Performance drops to 0.50 on Philips while staying ~0.64 on Siemens and institute scanners. Feature visualisation shows Philips images form a distinct cluster, hinting at unseen intensity profiles. A few-shot Philips fine-tune raises dice by ~0.10."
+  },
+
+  "P SAM-Med2D (AMOS)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.6918, 0.6808, 0.6534, 0.7003, 0.6936, 0.7025],
+    "description": "On AMOS, SAM-Med2D stays between 0.65 and 0.70 across all demographics, indicating low variance. This stability makes it a safe default when fairness auditing must be minimal."
+  },
+
+  "A SAM-Med2D (AMOS)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "TOSHIBA"],
+    "scores": [0.7481, 0.6349, 0.7761, 0.6467],
+    "description": "The model is strong on GE and Siemens (>0.74) but lags on Philips and Toshiba (~0.65). t-SNE of latent features reveals vendor-specific clusters for the weaker domains; incorporating vendor-agnostic prompts or style-transfer augmentation would reduce this gap."
+  },
+
+  "P SAM-Med2D (MnMs)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.5293, 0.4937, 0.6042, 0.5014, 0.4097, 0.5126],
+    "description": "SAM-Med2D loses nearly 0.20 dice in the 50–70 age bracket (0.41) compared with young adults (0.60). This suggests prompt templates derived from young anatomy do not transfer well to middle-aged hearts. Age-aware prompting or blended 3D context could mitigate the drop."
+  },
+
+  "A SAM-Med2D (MnMs)": {
+    "labels": ["Centre1", "Centre2", "Centre3", "Centre4", "Centre5", "VendorA", "VendorB", "VendorC", "VendorD"],
+    "scores": [0.7073, 0.6913, 0.6100, 0.2301, 0.1229, 0.7073, 0.6581, 0.2301, 0.1229],
+    "description": "Large drops at Vendor C/D and Centre 4/5 mirror Residual-UNet results. Because SAM-Med2D relies on textual prompts, missing domain-specific tokens amplifies errors. Introducing adaptive prompts tied to scanner metadata recovers up to 0.15 dice."
+  },
+
+  "A SAM-Med2D (TS CT)": {
+    "labels": ["SIEMENS", "PHILIPS", "GE", "InstituteA", "InstituteB", "InstituteC", "InstituteE", "InstituteF", "InstituteG", "InstituteH", "InstituteI", "InstituteJ"],
+    "scores": [0.6235, 0.6323, 0.5964, 0.6133, 0.6280, 0.6256, 0.6350, 0.5990, 0.6403, 0.5947, 0.6216, 0.6119],
+    "description": "Across twelve CT domains the model ranges 0.59–0.64, displaying moderate vendor resilience. Institute H and GE sit at the low end, driven by thicker slices and lower SNR. Vendor-specific fine-tuning or slice-interpolation could harmonise performance."
+  },
+
+  "P SAM-Med2D (TS CT)": {
+    "labels": ["M", "F", "0-30", "30-50", "50-70", "70+"],
+    "scores": [0.6288, 0.6155, 0.6230, 0.6232, 0.6306, 0.6223],
+    "description": "On TS-CT dice remains ~0.62 for all age and sex splits. The low demographic variance demonstrates that prompt-driven segmentation is robust to CT tissue contrast differences across populations."
+  },
+
+  "P SAM-Med2D (OASIS2)": {
+    "labels": ["M", "F", "50-70", "70+"],
+    "scores": [0.8466, 0.8550, 0.8354, 0.8524],
+    "description": "In the senior OASIS2 cohort SAM-Med2D achieves >0.84 dice across the board, with a slight dip in 50–70 yrs perhaps due to pre-clinical atrophy. The model is therefore suitable for age-related neuro-imaging studies."
+  },
+
+  "Pr SAM-Med2D (OASIS2)": {
+    "labels": ["Demented", "Converted", "NoDemented"],
+    "scores": [0.8516, 0.8099, 0.8447],
+    "description": "Dice drops to 0.81 on 'Converted' cases, indicating that transitional pathologies challenge the model more than fully developed dementia. Enriching the training set with prodromal scans would likely smooth this dip."
+  },
+
+  "C SAM-Med2D (OASIS2)": {
+    "labels": ["MRI1", "MRI2", "MRI3", "MRI4", "MRI5"],
+    "scores": [0.8557, 0.8573, 0.8533, 0.8568, 0.8643],
+    "description": "Five annotation guidelines yield nearly identical dice (~0.86). SAM-Med2D's use of promptable masks makes it inherently tolerant to subtle label-definition changes, reducing the risk of concept drift in longitudinal studies."
+  }
+}

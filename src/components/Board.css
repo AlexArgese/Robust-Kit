@@ -1,0 +1,125 @@
+
+/* wrapper generale */
+.board-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+/* cornice fissa */
+.board-frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.3));
+}
+
+/* container degli stati sovrapposti */
+.board-content {
+  position: absolute;
+  top: 7%;
+  left: 10%;
+  width: 80%;
+  height: auto;
+}
+
+/* ciascuno stato (initial / alt) */
+.board-state {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+/* visibilità */
+.board-state.initial.fade-in,
+.board-state.alt.fade-in {
+  opacity: 1;
+}
+
+.board-state.initial.fade-out,
+.board-state.alt.fade-out {
+  opacity: 0;
+}
+
+/* dettaglio testo */
+.scanner-details {
+  flex: 1 1 45%;
+  font-family: monospace;
+  padding: 0 2rem;
+}
+.scanner-details p {
+  margin: 3rem 0;
+  font-size: 1.3rem;
+  color: #111;
+}
+.scanner-details strong {
+  font-weight: bold;
+}
+
+/* immagine */
+.scanner-image {
+  position: relative;
+  flex: 1 1 45%;
+  max-width: 40%;
+}
+.scanner-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* badge */
+.badge {
+  position: absolute;
+  bottom: -16px;
+  left: 0%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+.badge.success { background-color: #a4e385; }
+.badge.error   { background-color: #f28b82; }
+
+.badge img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+/* check */
+.board-check {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .board-wrapper { margin-top: -4rem; }
+  .scanner-details p { font-size: 0.9rem; }
+  .scanner-image { max-width: 50%; }
+  .board-check { width: 50px; height: 50px; bottom: -15px;}
+}
+@media (max-width: 480px) {
+  .board-wrapper { margin-top: -3rem; padding-top: 4rem; }
+  .board-content { flex-direction: column; align-items: flex-start; }
+  .scanner-image { max-width: 80%; margin-top: 1rem; }
+  .board-check { width: 50px; height: 50px; bottom: -12px;}
+}

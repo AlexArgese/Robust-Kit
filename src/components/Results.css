@@ -1,0 +1,212 @@
+/* ------------------------------------------------------------------------
+   PALETTE
+---------------------------------------------------------------------------*/
+:root {
+  --rk-blue:   #4d88ff;
+  --rk-green:  #B6F09C;
+  --rk-grey:   #d9d9de;
+  --rk-light:  #ffffff;
+  --rk-dark:   #333333;
+}
+.hero-pad {
+  padding: 8% 0 0 0;
+}
+/* ------------------------------------------------------------------------
+   LAYOUT GENERALE
+---------------------------------------------------------------------------*/
+
+
+.results {
+  width: 100%;
+  background: linear-gradient(180deg, var(--rk-grey) 20%, #F4F4F6 50%);
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.results-table-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.results-frame {
+  position: relative;
+  z-index: 0;
+  width: 82%;
+  max-width: 1050px;
+  padding: 6rem 2rem 4rem;
+  box-sizing: border-box;
+}
+.results-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/large board.png") center / 100% 100% no-repeat;
+  z-index: -1;
+}
+
+/* ------------------------------------------------------------------------
+   TITOLI
+---------------------------------------------------------------------------*/
+.models-title,
+.shifts-title {
+  font-size: 2rem;
+  color: var(--rk-blue);
+  pointer-events: none;
+}
+.models-title { position: absolute; top: 1rem; left: 1.25rem; }
+.shifts-title { position: absolute; top: 4.5rem; left: 60%; transform: translateX(-50%);}
+
+
+/* ------------------------------------------------------------------------
+   TABELLA
+---------------------------------------------------------------------------*/
+.results-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 2rem;
+  font-family: inherit;
+  position: relative;
+  z-index: 1;                         /* sopra le vline */
+}
+.results-table {
+  background-image: url("/icons/handline-h.svg");
+  background-repeat: no-repeat;
+  background-position: 65% top ;
+  background-size: 70% 6px;
+}
+
+/* ------- ORIZZONTALE sotto HEADER (sempre normale) ----------------------*/
+.results-table thead tr {
+  background-image: url("/icons/handline-h-th.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 6px;
+  align-items: center;
+}
+
+/* ------- ORIZZONTALI sotto il BODY (flip pari) -------------------------*/
+.results-table tbody tr {
+  background-image: url("/icons/handline-h.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 6px;
+  align-items: center;
+}
+.results-table tbody tr:nth-child(even) {
+  background-image: url("/icons/handline-h-flip.svg");
+}
+/*** NOVITÀ – niente linea sotto l’ultima riga ***/
+.results-table tbody tr:last-child {
+  background-image: none;
+}
+
+.thHead {
+  font-size: 2rem;
+}
+
+/* ------------------------------------------------------------------------
+   CELLE
+---------------------------------------------------------------------------*/
+.results-table th,
+.results-table td {
+  border: none;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  vertical-align: middle;
+  background: transparent;
+}
+
+/* ------------------------------------------------------------------------
+   LINEE VERTICALI (4 span assoluti) – INVARIATE
+---------------------------------------------------------------------------*/
+.results-frame .vline-1,
+.results-frame .vline-2,
+.results-frame .vline-3,
+.results-frame .vline-4 {
+  position: absolute;
+  top: calc(6rem + 2rem);             /* padding-top + margin-top tabella */
+  bottom: 5rem;                       /* padding-bottom della frame */
+  width: 6px;
+  background: url("/icons/handline-v.svg") repeat-y;
+  background-size: 6px auto;
+  pointer-events: none;
+  z-index: 0;
+}
+.results-frame .vline-2,
+.results-frame .vline-4 { transform: scaleY(-1); }
+.results-frame .vline-1 { left: 23%; }
+.results-frame .vline-2 { left: 40%; }
+.results-frame .vline-3 { left: 60%; }
+.results-frame .vline-4 { left: 80%; }
+
+/* ------------------------------------------------------------------------
+   COMPONENTI INTERNI
+---------------------------------------------------------------------------*/
+.model-name { font-weight: 500; font-size: 1rem; display: flex; align-items: center; justify-content: end; color:#333; gap:0.2em; margin-top:0.5em;}
+.dataset-select { font-size: 1rem; border:0; border-radius:4px; color:#333; cursor:pointer; font-family:'Nordique Pro Inline',sans-serif; }
+
+.cell-label      { font-size: 0.8rem; font-weight: 500; margin-bottom: 0.25rem; color: var(--rk-dark); }
+.cell-score      { font-size: 1.5rem; font-weight: 600; }
+.cell-score.green{ color: var(--rk-green); text-decoration: underline; }
+.cell-score:not(.green){ color:#555; }
+.cell-value.clickable{ cursor:pointer; }
+
+
+.back-detalis {
+  position: relative; 
+  z-index: 0;
+  margin-top: 9rem;
+  padding: 1rem 1rem 6rem;
+  background: #F4F4F6;
+  overflow: visible;
+  height: auto;
+}
+
+.back-detalis::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: calc(100% + 500px);
+  height: calc(100% + 10%);
+  background: linear-gradient(180deg, #D9D9DE 0%, #fff 100%);
+  transform: rotate(4deg);
+  transform-origin: top right;
+  z-index: -1; 
+  box-sizing: border-box;       /* include il bordo nelle dimensioni */
+  border: 0.5px solid #D9D9DE;       /* bordo nero sottile */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------------------------------------------------------------------
+   DETTAGLIO (grafico + stelle)
+---------------------------------------------------------------------------*/
+.detail-section { padding: 0 1rem 0; text-align:center; animation:fadeIn 0.6s ease-in-out forwards; opacity:0; }
+.detail-title   { font-size:2rem; margin-bottom:1.5rem; }
+.chart-wrapper  { width:90%; max-width:800px; height:320px; margin:2rem auto; position:relative; }
+.chart-wrapper canvas{ border-radius:12px; }
+.detail-copy    { max-width:700px; margin:0 auto 2rem; line-height:1.55; color:var(--rk-dark); }
+
+/* stelle ----------------------------------------------------------------- */
+.star-wrapper   { display:flex; align-items:center; gap:0.5rem; justify-content:center; font-size:2.5rem; }
+.stars-outer    { position:relative; color:var(--rk-grey); }
+.stars-inner    { position:absolute; top:0; left:0; white-space:nowrap; overflow:hidden; color:var(--rk-green); transition:width 0.6s ease; }
+.numeric        { font-size:2rem; font-weight:500; }
+
+/* fadeIn ----------------------------------------------------------------- */
+@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+/* ------------------------------------------------------------------------
+   RESPONSIVE
+---------------------------------------------------------------------------*/
+@media (max-width: 800px) {
+  .results-frame          { width:95%; padding:2.5rem 1.5rem 4rem; }
+  .models-title,
+  .shifts-title           { font-size:1.3rem; }
+  .results-table th,
+  .results-table td       { font-size:0.9rem; padding:0.5rem 0.8rem; }
+  .dataset-select         { font-size:0.8rem; padding:0.2rem 0.4rem; }
+}

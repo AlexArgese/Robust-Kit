@@ -1,0 +1,179 @@
+/* ==== Contenitore Generale ==== */
+.metrics-wrapper {
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    margin-top: 8em;
+  }
+  
+  /* ===== Titolo “Metrics” fuori dalla board ===== */
+  .metrics-title-outside {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* ==== Contenitore della board + overlay ==== */
+  .metrics-container {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    height: auto;
+  }
+  
+  /* ==== Immagine “/large board.png” ==== */
+  .board-image-metric {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* ==== SOVRAPPOSIZIONE del contenuto dentro la parte bianca della board ==== */
+  .overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Manteniamo lo stesso padding consistente per il margine interno */
+    padding: 2em 5em;
+    box-sizing: border-box;
+    pointer-events: none;
+    overflow: visible;
+  }
+  
+  /* ==== SEZIONE RG e RAP dentro l’overlay ==== */
+  .metric-section {
+    margin-top: 1rem;
+    pointer-events: auto;
+  }
+  
+  /* Intestazione “RG” o “RAP” */
+  .metric-heading {
+    font-family: inherit;
+    font-size: 1.8rem;
+    margin: 0 0 0.25rem 0;
+  }
+  
+  /* Paragrafo descrittivo della metrica */
+  .metric-desc {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #555;
+    margin: 0 0 1rem 0;
+  }
+  
+  /* ==== Contenitore orizzontale della formula ==== */
+  .formula-container {
+    position: relative;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: #000;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Spazio orizzontale fra le porzioni della formula */
+  .formula-space {
+    width: 1rem;
+  }
+  
+  /* Ogni parte interattiva della formula */
+  .formula-part {
+    position: relative;
+    cursor: default;
+    padding: 0.15rem 0.25rem;
+    border-radius: 4px;
+  }
+  
+  .formula-part:hover {
+    color: #ccc;
+  }
+  
+  /* Operatore “·” */
+  .formula-op {
+    padding: 0 0.25rem;
+  }
+  
+  /* ==== Tooltip comuni ==== */
+  .tooltip {
+    position: absolute;
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    font-family: inherit;
+    font-size: 1.3rem;
+    color: #4d8aff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 50;
+  }
+  
+  /* ==== Tooltip RG (posizionati sopra la formula) ==== */
+  .tooltip-rg.tooltip-1 {
+    top: 3.5rem;
+    left: 0;
+  }
+  .tooltip-rg.tooltip-2 {
+    top: 3.5rem;
+    left: 3.5rem;
+  }
+  .tooltip-rg.tooltip-3 {
+    top: 3.5rem;
+    left: 9rem;
+  }
+  .tooltip-rg.tooltip-4 {
+    top: 3.5rem;
+    left: 15rem;
+  }
+  
+  /* ==== Tooltip RAP (posizionati sotto la formula) ==== */
+  .tooltip-rap.tooltip-1 {
+    top: 4.5rem;
+    left: 0;
+  }
+  .tooltip-rap.tooltip-2 {
+    top: 4.5rem;
+    left: 9rem;
+  }
+  
+  /* ==== Responsive (adattare se necessario) ==== */
+  @media (max-width: 900px) {
+    .metrics-container {
+      width: 100%;
+    }
+    .overlay-content {
+      padding: 60px 40px 60px 40px;
+    }
+    .metrics-title-outside {
+      font-size: 2rem;
+    }
+    .formula-container {
+      font-size: 1rem;
+    }
+    .tooltip {
+      font-size: 0.85rem;
+    }
+    .tooltip-rg.tooltip-2 {
+      left: 3rem;
+    }
+    .tooltip-rg.tooltip-3 {
+      left: 8rem;
+    }
+    .tooltip-rg.tooltip-4 {
+      left: 12rem;
+    }
+    .tooltip-rap.tooltip-2 {
+      left: 7rem;
+    }
+  }
+  

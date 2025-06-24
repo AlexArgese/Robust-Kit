@@ -1,0 +1,288 @@
+/* ==============================================================
+   Home.css (completo)
+   - Problem Section: obliquo in basso con ombra (inclinazione standard)
+   - Why Section: sfondo gradiente
+   - See-How Section: obliquo in basso con ombra, **inclinazione invertita**
+================================================================ */
+
+/* ==============================================================
+   GENERALE
+================================================================ */
+.home {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ==============================================================
+   HERO (video full-width)
+================================================================ */
+.hero {
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #b6b6b6 0%, #eeeeee 60%);
+}
+
+.hero-shield {
+  position: relative;
+  z-index: 2;
+  width: 70vw;
+  border: none;
+
+  /* Maschere combinate per sfumare i bordi */
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, black 0%, black 90%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 0%, black 90%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: destination-in; /* compatibilità Safari */
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+
+/* ==============================================================
+   PROBLEM SECTION
+   - obliquo in basso con ::after
+   - ombra sotto l'obliquo
+================================================================ */
+.problem-section {
+  position: relative;      /* serve per posizionare ::after */
+  background: #F4F4F6;      /* colore di sfondo principale */
+  overflow: visible;       /* lascia visibile l’obliquo che “esce” */
+  z-index: 2;              /* sopra la why-section */
+  padding: 2rem 1rem ;  /* margini interni (puoi regolare a piacere) */
+}
+
+/* ::after genera l’angolo obliquo in fondo a Problem (5° verso l’alto da destra a sinistra) */
+.problem-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200px;   /* estende di 200px a sinistra */
+  right: -200px;  /* estende di 200px a destra */
+  bottom: -20%;   /* estende di 20% in più verso il basso */
+  background: linear-gradient(0deg, #F4F4F6 0%, #D9D9DE 100%);
+  transform: skewY(-5deg);         /* inclinazione verso l’alto da destra a sinistra */
+  transform-origin: top left;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* ombra sotto l’obliquo */
+  z-index: 1;      /* sotto il contenuto (z-index:2), ma sopra la why-section (z-index:0) */
+}
+
+/* Contenuto interno di Problem (sta sopra l’obliquo) */
+.problem-content {
+  position: relative;
+  z-index: 2;
+  margin: 0 15%;
+  text-align: left;
+}
+
+.problem-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.blue {
+  color: #4d8aff;
+}
+
+.problem-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+/* ==============================================================
+   WHY SECTION
+   - sfondo con gradiente verticale
+   - z-index: 0 (sotto Problem e See-How)
+================================================================ */
+.why-section {
+  position: relative;
+  background: linear-gradient(180deg, #d9d9de 0%, #f3f3f3 100%);
+  overflow: visible;
+  padding: 10rem 1rem;
+  z-index: 0;    /* sta sotto Problem (z=2) e See-How (z=2) */
+}
+
+.why-content {
+  position: relative;
+  z-index: 1;    /* testo sopra lo sfondo gradiente */
+  margin: 0 15%;
+  text-align: left;
+}
+
+.why-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.why-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+/* ==============================================================
+   SEE-HOW SECTION (identica alla Problem Section, ma inclinazione invertita)
+   - obliquo in basso con ::after (5° verso l’alto da sinistra a destra)
+   - ombra sotto l'obliquo
+================================================================ */
+.see-how-section {
+  position: relative;      /* serve per posizionare ::after */
+  background: #F4F4F6;      /* stesso colore base di Problem e Why */
+  overflow: visible;       /* lascia visibile l’obliquo che “esce” */
+  z-index: 2;              /* sopra la why-section */
+  padding: 2rem 1rem 6rem;  /* margini interni (regola a piacere) */
+}
+
+/* ::after genera l’angolo obliquo in fondo a See-How, INVERTENDO l’inclinazione */
+.see-how-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200px;   /* estende di 200px a sinistra */
+  right: -200px;  /* estende di 200px a destra */
+  bottom: -20%;   /* estende di 20% in più verso il basso */
+  background: linear-gradient(0deg, #F4F4F6 0%, #D9D9DE 100%);
+  transform: skewY(5deg);          /* inclinazione verso l’alto da sinistra a destra */
+  transform-origin: top right;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* ombra sotto l’obliquo */
+  z-index: 1;      /* sotto il contenuto (z-index:2), ma sopra la why-section (z-index:0) */
+}
+
+/* Contenuto interno di See-How (sta sopra l’obliquo) */
+.see-how-content {
+  position: relative;
+  z-index: 2;
+  margin: 0 10%;
+  text-align: center;
+}
+
+.see-how-title {
+  font-size: 3rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.see-how-img {
+  width: 20%;
+  filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.3));
+}
+
+.see-how-img:active {
+  filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.5));
+  transform: translate(5px, 3px);
+}
+
+
+/* ==============================================================
+   (Eventuale footer “statico” che sta sotto a tutto)
+================================================================ */
+.footer {
+  /* Esempio di footer semplice; deve avere z-index:0 o inferiore */
+  position: relative;
+  z-index: 0;
+  background: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+
+.info-section {
+  position: relative;
+  background: linear-gradient(180deg, #eeeeee 0%, #ffffff 100%);
+  overflow: visible;
+  padding: 10rem 1rem;
+  z-index: 0;  
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.news-section {
+  background-color: linear-gradient(0deg, #F4F4F6 0%, #D9D9DE 100%);
+  padding: 3rem 15%;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15em;
+}
+
+.news-list {
+  list-style: disc inside;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.news-list li + li {
+  margin-top: 0.75rem;
+}
+
+.news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.news-card {
+  background-color: #fff;
+  border-left: 4px solid #4d8aff;
+  padding: 1.25rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+}
+
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.news-date {
+  font-weight: bold;
+  color: #222;
+}
+
+.news-text {
+  font-size: 1rem;
+  color: #333;
+  margin: 1em 0 0 0;
+}
+
+.news-badge {
+  background-color: #4d8aff;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+}

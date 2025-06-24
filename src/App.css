@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Nordique Pro Inline';
+  src: url('/fonts/NordiqueProInline-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nordique Pro Inline';
+  src: url('/fonts/NordiqueProInline-bold.ttf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nordique Pro Inline', sans-serif;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,167 @@
+.started {
+    margin: 0 auto;
+    position: relative;
+    width: 100vw;
+    background: linear-gradient(180deg, #fff 0%, #D9D9DE 100%);
+}
+
+.started-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 8% 0 5% 0;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+  /* riga orizzontale contenente le tre “board” */
+  .board-row-started {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem; /* spazio orizzontale fra le immagini */
+  }
+  
+  /* wrapper di ogni singola board */
+  .board-wrapper-started {
+    position: relative;       /* per “agganciare” il testo in assoluto */
+    display: flex;
+    justify-content: center;
+    width: 300px;              /* regola come preferisci */
+    height: auto;              /* potrà scalare in altezza mantenendo proporzioni */
+    flex: 0 0 auto;            /* impedisce di allargarsi oltre 300px */
+  }
+  
+  /* l’immagine di sfondo vera e propria */
+  .board-img-started {
+    width: 80%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.3));
+  }
+
+  .overlay-icon-started {
+    width: 30px;   /* regola la dimensione dell’icona */
+    height: 30px;
+    margin-bottom: 0.2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  /* testo sovrapposto (posizionato assoluto dentro board-wrapper) */
+  .board-text-started {
+    position: absolute;
+    top: 50%;                  /* centrato verticalmente */
+    left: 50%;                 /* centrato orizzontalmente */
+    transform: translate(-50%, -50%);
+    pointer-events: none;      /* non cattura i click, li passa all’immagine/sezione sotto */
+    color: #333;            /* blu come da design */
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+    text-align: center;
+  }
+  
+  /* Stile per il testo che vuoi sovrapporre
+     Può essere un titolo, un paragrafo, un piccolo sottotitolo, ecc */
+  .overlay-title-started {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    line-height: 1.2em;
+  }
+
+  .board-img-started:active{
+    filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.5)); transform: translate(5px, 3px);
+  }
+  
+  .board-wrapper-started:active .board-img-started {
+    filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.5));
+    transform: translate(5px, 3px);
+  }
+  
+  /* Applichiamo lo stesso effetto di ombra e traslazione al testo quando il wrapper è attivo */
+  .board-wrapper-started:active {
+    filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.5));
+    transform: translate(5px, 3px);
+  }
+  
+
+
+.quick-started {
+    background: linear-gradient(180deg, #D9D9DE 0%, #fff 50%, #F4F4F6 100%);
+}
+
+  /* Contenitore generale */
+.quickstart-container {
+    margin: 0 20%;
+    padding: 6rem 1rem 2rem 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Titolo "Quick Start" */
+  .quickstart-title {
+    font-family: inherit;
+    font-size: 2.5rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  /* Colore blu (riusa lo stesso #4D8AFF dei componenti precedenti) */
+  .blue-text {
+    color: #4D8AFF;
+  }
+  
+  /* Ogni step */
+  .quickstart-step {
+    margin-bottom: 2rem;
+  }
+  
+  /* Heading di ciascun step (Step 1, Step 2, ecc.) */
+  .step-heading {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-heading2 {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  /* Blocco di codice grigio con bordo arrotondato */
+  .code-block {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #222;
+    overflow-x: auto;
+    white-space: pre-wrap; /* se vuoi a capo automatico su schermi piccoli */
+    word-wrap: break-word;
+    border: 1px solid #ddd;
+  }
+  
+  /* Se vuoi aggiungere un leggero box-shadow ai blocchi di codice: */
+  /*
+  .code-block {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  */
+  
+  /* Responsive: riduci un po’ le dimensioni su schermi stretti */
+  @media (max-width: 600px) {
+    .quickstart-title {
+      font-size: 2rem;
+    }
+    .step-heading {
+      font-size: 1.25rem;
+    }
+    .code-block {
+      font-size: 0.9rem;
+    }
+  }
+  

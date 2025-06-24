@@ -1,0 +1,408 @@
+[
+  {
+    "model": "Residual Unet (MnMs)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 0.9,
+        "key": "A Residual Unet (MnMs)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 2.2,
+        "key": "P Residual Unet (MnMs)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "MedSAM (TS CT)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 2.6,
+        "key": "A MedSAM (TS CT)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 2.7,
+        "key": "P MedSAM (TS CT)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "SegResNet (AMOS)",
+    "values": [
+      {
+        "label": "RG",
+        "shift": "Acquisition",
+        "score": 2.4,
+        "key": "A SegResNet (AMOS)"
+      },
+      {
+        "label": "RG",
+        "shift": "Population",
+        "score": 3.1,
+        "key": "P SegResNet (AMOS)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "SAM-Med2D (OASIS2)",
+    "values": [
+      {
+        "label": "",
+        "shift": "Acquisition",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 4.2,
+        "key": "P SAM-Med2D (OASIS2)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Prevalence",
+        "score": 4.1,
+        "key": "Pr SAM-Med2D (OASIS2)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Concept",
+        "score": 4.3,
+        "key": "C SAM-Med2D (OASIS2)"
+      }
+    ]
+  },
+  {
+    "model": "SAM-Med2D (MnMs)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 1.0,
+        "key": "A SAM-Med2D (MnMs)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 2.3,
+        "key": "P SAM-Med2D (MnMs)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "SAM-Med2D (TS CT)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 3.0,
+        "key": "A SAM-Med2D (TS CT)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 3.1,
+        "key": "P SAM-Med2D (TS CT)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "SAM-Med2D (TS MRI)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 2.8,
+        "key": "A SAM-Med2D (TS MRI)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 3.1,
+        "key": "P SAM-Med2D (TS MRI)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "MedSAM (MnMs)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 4.0,
+        "key": "A MedSAM (MnMs)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 4.0,
+        "key": "P MedSAM (MnMs)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "MedSAM (TS MRI)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 2.6,
+        "key": "A MedSAM (TS MRI)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 2.8,
+        "key": "P MedSAM (TS MRI)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "SAM-Med2D (AMOS)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 3.2,
+        "key": "A SAM-Med2D (AMOS)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 3.4,
+        "key": "P SAM-Med2D (AMOS)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "MedSAM (AMOS)",
+    "values": [
+      {
+        "label": "RAP",
+        "shift": "Acquisition",
+        "score": 3.2,
+        "key": "A MedSAM (AMOS)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 3.3,
+        "key": "P MedSAM (AMOS)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "SwinUnetR (AMOS)",
+    "values": [
+      {
+        "label": "RG",
+        "shift": "Acquisition",
+        "score": 1.1,
+        "key": "A SwinUnetR (AMOS)"
+      },
+      {
+        "label": "RG",
+        "shift": "Population",
+        "score": 2.0,
+        "key": "P SwinUnetR (AMOS)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  },
+  {
+    "model": "MedSAM (OASIS2)",
+    "values": [
+      {
+        "label": "",
+        "shift": "Acquisition",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "RAP",
+        "shift": "Population",
+        "score": 4.2,
+        "key": "P MedSAM (OASIS2)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Prevalence",
+        "score": 4.2,
+        "key": "Pr MedSAM (OASIS2)"
+      },
+      {
+        "label": "RAP",
+        "shift": "Concept",
+        "score": 4.2,
+        "key": "C MedSAM (OASIS2)"
+      }
+    ]
+  },
+  {
+    "model": "SegResNet (BRATS)",
+    "values": [
+      {
+        "label": "",
+        "shift": "Acquisition",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "RG",
+        "shift": "Population",
+        "score": 0.5,
+        "key": "P SegResNet (BRATS)"
+      },
+      {
+        "label": "",
+        "shift": "Prevalence",
+        "score": "-",
+        "key": ""
+      },
+      {
+        "label": "",
+        "shift": "Concept",
+        "score": "-",
+        "key": ""
+      }
+    ]
+  }
+]
