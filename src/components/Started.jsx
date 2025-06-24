@@ -18,17 +18,16 @@ export default function Started() {
 
         <div className="board-row-started">
           {[0, 1, 2].map((idx) => {
-            // Definisco qui i link per ciascuna card
             let href, downloadAttr, targetAttr, relAttr;
             if (idx === 0) {
               href = 'https://anonymous.4open.science/r/robust-kit/README.md';
               targetAttr = '_blank';
               relAttr = 'noopener noreferrer';
             } else if (idx === 1) {
-              href = '/paper.pdf'; // sostituisci con il percorso reale del PDF
+              href = '/Robust-Kit.pdf';
               downloadAttr = true;
             } else {
-              href = 'mailto:email@anonymized.com'; // sostituisci con la tua email
+              href = 'mailto:email@anonymized.com';
             }
 
             return (
@@ -96,12 +95,10 @@ export default function Started() {
 
       <div className="quick-started">
         <div className="quickstart-container">
-          {/* Titolo principale */}
           <h2 className="quickstart-title normal">
             Quick <span className="blue-text">Start</span>
           </h2>
 
-          {/* Passo 1 */}
           <div className="quickstart-step">
             <h3 className="step-heading normal">
               Step&nbsp;1&nbsp;– <span className="blue-text">Install dependencies</span>
@@ -111,7 +108,6 @@ pip install -r requirements.txt
             </pre>
           </div>
 
-          {/* Passo 2 */}
           <div>
             <h3 className="step-heading normal">
               Step&nbsp;2&nbsp;– <span className="blue-text">Run robustness test</span>
@@ -121,7 +117,6 @@ python robust‐kit.py --shift shift_name --model_name model_name --dataset data
             </pre>
           </div>
 
-          {/* Valutazione diretta se hai già le predizioni */}
           <div className="quickstart-step">
             <h3 className="step-heading2 normal">
               Directly Evaluate Model Performance, if any predictions

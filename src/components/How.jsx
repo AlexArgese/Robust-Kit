@@ -6,7 +6,6 @@ import Metrics from './Metrics';
 function How() {
   const boardRef = useRef(null);
 
-  // Manteniamo solo il parallasse per lo Step1
   useEffect(() => {
     const onScroll = () => {
       const sc = window.scrollY;
@@ -19,7 +18,6 @@ function How() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Handler per scrollare alla sezione "Types of Shift"
   const scrollToTypesShift = (e) => {
     e.preventDefault();
     const targetEl = document.getElementById('TypesShift');
@@ -70,10 +68,8 @@ function How() {
             </div>
 
             <div className="board-image" ref={boardRef}>
-              {/* cornice sotto */}
               <img className="board" src="/step1/board.png" alt="Board frame" />
 
-              {/* layer di parallasse SOPRA la cornice */}
               <div className="board-parallax">
                 <div className="parallax-layer layer1" data-depth="0.1">
                   <img src="/step1/acquisition.png" alt="Acquisition shift" />
@@ -100,7 +96,6 @@ function How() {
           </div>
 
           <div className="step2-visual">
-            {/* ── freccia verso sinistra ── */}
             <svg
               className="step2-arrow-static arrow-left margine-frecce"
               viewBox="0 0 200 100"
@@ -127,7 +122,6 @@ function How() {
               />
             </svg>
 
-            {/* ── freccia verso destra ── */}
             <svg
               className="step2-arrow-static arrow-right margine-frecce"
               viewBox="0 0 200 100"
@@ -154,7 +148,6 @@ function How() {
               />
             </svg>
 
-            {/* ── icone statiche ── */}
             <div className="step2-layer step2-left margine">
               <img src="/step2/open model.png" alt="Open model" />
               <p className="step2-label"><span className="blue">Open</span> model</p>
@@ -184,7 +177,6 @@ function How() {
       <section className="details">
         <div className="details-content">
           <h2 className="details-title blue">Details</h2>
-          {/* Questo è il target dello scroll */}
           <h3 id="TypesShift" className="normal">Types of Shift</h3>
           <StepDetails />
         </div>
@@ -234,7 +226,6 @@ function Step3() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // — CALCOLO fillPct ed emptyPct —
   const resultRaw = 28;
   let fillPct;
   if (rawPct <= 15)            fillPct = rawPct;
@@ -244,13 +235,11 @@ function Step3() {
   else                          fillPct = 100;
   const emptyPct = 100 - fillPct;
 
-  // — CALCOLO border-radius —
   let radius;
   if (rawPct <= 15)            radius = 0.5;
   else if (rawPct <= 16)       radius = 0.5 - (rawPct - 15);
   else                          radius = 0.2;
 
-  // — CALCOLO altezza —
   let heightStyle;
   if (rawPct <= 15)            heightStyle = '3rem';
   else if (rawPct <= 16) {
@@ -280,7 +269,6 @@ function Step3() {
           className="progress-slider"
           style={{ height: heightStyle }}
         >
-          {/* EMPTY sotto */}
           <div className="progress-empty">
             <div
               className="empty-bg"
@@ -289,7 +277,6 @@ function Step3() {
                 borderRadius: `0 ${radius}rem ${radius}rem 0`,
               }}
             />
-            {/* RAP metric */}
             {fillPct >= 50 && fillPct < 100 && (
               <div className="metric-content empty-content">
                 <h2 className='normal'>RAP metric</h2>
@@ -300,7 +287,6 @@ function Step3() {
             )}
           </div>
 
-          {/* FILL sopra */}
           <div className="progress-fill">
             <div
               className="fill-bg"
@@ -309,13 +295,11 @@ function Step3() {
                 borderRadius: `${radius}rem 0 0 ${radius}rem`,
               }}
             />
-            {/* Dice label */}
             {fillPct < 20 && (
               <div className="progress-label">
                 Dice score – <span>{Math.round(rawPct)}%</span>
               </div>
             )}
-            {/* RG metric */}
             {fillPct >= 50 && fillPct < 100 && (
               <div className="metric-content fill-content">
                 <h2 className='normal'>RG metric</h2>
@@ -324,7 +308,6 @@ function Step3() {
                 <p><strong>What does it say?</strong><br />How much does it hold up outside the domain</p>
               </div>
             )}
-            {/* Result finale */}
             {fillPct === 100 && (
               <div className="result-content">
                 <h2>The Result</h2>
@@ -394,7 +377,6 @@ function StepDetails() {
             className={`card-inner ${flipped[idx] ? 'is-flipped' : ''}`}
             onClick={() => toggleFlip(idx)}
           >
-            {/* FRONTE: sfondo stone + testo */}
             <div
               className="card-face card-front"
               style={{ backgroundImage: `url(${stone.src})` }}
@@ -407,7 +389,6 @@ function StepDetails() {
               </div>
             </div>
 
-            {/* RETRO: sfondo stone + overlay dettaglio */}
             <div
               className="card-face card-back"
               style={{ backgroundImage: `url(${stone.src})` }}

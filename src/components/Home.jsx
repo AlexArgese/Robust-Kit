@@ -36,7 +36,6 @@ export default function Home() {
       try {
         video.currentTime = target;
       } catch (err) {
-        /* Safari potrebbe lanciare eccezione se non seekable, ignoriamo */
       }
       video.pause();
     };
@@ -67,9 +66,7 @@ export default function Home() {
     };
   }, [playedBefore]);
 
-  // badge e immagini in base allo stato
   const badgeClass = showAlt ? 'badge error' : 'badge success';
-  const badgeIcon = showAlt ? '/x.svg' : '/check.svg';
   const detailsInitial = {
     scanner: 'Siemens',
     patientGroup: 'African',
