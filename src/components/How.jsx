@@ -36,7 +36,7 @@ function How() {
               <h1 className="normal">-Kit in</h1>
             </div>
             <h1 className="normal blue">3</h1>
-            <h1 className="normal"> step</h1>
+            <h1 className="normal"> steps</h1>
           </div>
           <h2 className="normal">Don’t trust performance until it’s tested outside the box.</h2>
         </section>

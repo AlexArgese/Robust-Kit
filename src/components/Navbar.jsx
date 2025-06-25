@@ -28,7 +28,12 @@ function Navbar() {
           <li><NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink></li>
           <li><NavLink to="/how" onClick={() => setMenuOpen(false)}>How</NavLink></li>
           <li><NavLink to="/results" onClick={() => setMenuOpen(false)}>Results</NavLink></li>
-          <li><NavLink to="/started" onClick={() => setMenuOpen(false)}>Get started</NavLink></li>
+          <li><NavLink to="/started" onClick={() => setMenuOpen(false)} style={{display:'flex', flexDirection:'row', gap:'0.5em'}}>Get started <img
+                          src="/icons/github.svg"
+                          alt="GitHub icon"
+                          className="overlay-icon-started"
+                          style={{marginTop:'-0.2em'}}
+                        /></NavLink></li>
         </ul>
       </div>
     </nav>
